@@ -47,7 +47,22 @@ public class SpellBook : MonoBehaviour
             }
 
         }
-        // this is here because the code yell at me for not having it, this should never go off
+        // this is here because if the player inputs an invaild ritual
         return -1;
+    }
+    public bool manacheck(int s)
+    {
+        spell = Spells[s].GetComponent<Spell>();
+        float m = spell.ManaCost;
+        
+        if(PlayerHealthandMana.getmana() >= m)
+        {
+            PlayerHealthandMana.setMana(m);
+            return true;
+        }
+        else
+        {
+            return false;
+        }
     }
 }

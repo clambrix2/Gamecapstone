@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor;
 using UnityEngine;
 
 public class Playercontroller : MonoBehaviour
@@ -10,17 +11,19 @@ public class Playercontroller : MonoBehaviour
     private SpellBook sb;
     public Transform shootpoint;
     private Rigidbody2D rb;
+    private SpellController sc;
     public float speed;
     private float moveinput;
     public float jumpforce;
     private bool isgrounded;
     int i;
-    private float isleftorright;
+    private bool isleft;
     void Start()
     {
         rituallength = 3;
         sb = gm.GetComponent<SpellBook>();
         rb= GetComponent<Rigidbody2D>();
+        sc = gm.gameObject.GetComponent<SpellController>();
         i = 0;
         isgrounded = true;
     }
@@ -37,8 +40,7 @@ public class Playercontroller : MonoBehaviour
             firespell();
         }
         moveinput = Input.GetAxisRaw("Horizontal");
-        isleftorright = moveinput;
-        Debug.Log(isleftorright); Debug.Log("MoveInput ");
+        rotate();
         move();
         if(Input.GetKeyDown(KeyCode.Space) && isgrounded)
         {
@@ -46,6 +48,22 @@ public class Playercontroller : MonoBehaviour
         }
         
         
+    }
+    void rotate()
+    {
+        if (moveinput > 0)
+        {
+            transform.localRotation = Quaternion.Euler(0, 0, 0);
+            
+            sc.leftorright(moveinput);
+        }
+        else if (moveinput < 0)
+        {
+            transform.localRotation = Quaternion.Euler(0, 180, 0);
+            
+            sc.leftorright(moveinput);
+        }
+
     }
     void Spellcast()
     {
@@ -83,8 +101,11 @@ public class Playercontroller : MonoBehaviour
         {
             input[x] = KeyCode.None;
         }
-        
-        Instantiate(sb.Spells[s], shootpoint.transform.position, shootpoint.transform.rotation);
+        if (sb.manacheck(s))
+        {
+            Instantiate(sb.Spells[s], shootpoint.transform.position, shootpoint.transform.rotation);
+            
+        }
         
     }
     void move()
@@ -99,9 +120,9 @@ public class Playercontroller : MonoBehaviour
         rb.velocity = new Vector2(rb.velocity.x, jumpforce);
 
     }
-    public float getleftorright()
+    public bool getleftorright()
     {
-        return isleftorright;
+        return isleft;
     }
     private void OnCollisionEnter2D(Collision2D collision)
     {

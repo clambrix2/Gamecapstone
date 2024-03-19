@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &8229266804680978042
+--- !u!1 &2610767736881848063
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,42 +8,38 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 9215892561162209641}
-  - component: {fileID: 1121035847833782303}
-  - component: {fileID: 6216880590403466773}
-  - component: {fileID: 7397477951281477145}
-  - component: {fileID: 4148403958665528712}
-  - component: {fileID: 5535961563761345876}
+  - component: {fileID: 8326388032510741693}
+  - component: {fileID: 1541284978796513712}
   m_Layer: 0
-  m_Name: Square
-  m_TagString: Spell
+  m_Name: Triangle
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &9215892561162209641
+--- !u!4 &8326388032510741693
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8229266804680978042}
+  m_GameObject: {fileID: 2610767736881848063}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0.14726025}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 5792242559614815219}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!212 &1121035847833782303
+--- !u!212 &1541284978796513712
 SpriteRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8229266804680978042}
-  m_Enabled: 1
+  m_GameObject: {fileID: 2610767736881848063}
+  m_Enabled: 0
   m_CastShadows: 0
   m_ReceiveShadows: 0
   m_DynamicOccludee: 1
@@ -77,7 +73,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
+  m_Sprite: {fileID: 7482667652216324306, guid: 75f5f34dc1b5347e0b8351032682f224, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -88,72 +84,48 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &6216880590403466773
-MonoBehaviour:
+--- !u!1 &2633112185980772662
+GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8229266804680978042}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 40bcc971fc7a8304592307f3152bb6d0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Damage: 2
-  ManaCost: 1
-  Manarefund: 2
-  Spellname: Spell Arrow
-  spellritual: 6a0000006a0000006a000000
---- !u!114 &7397477951281477145
-MonoBehaviour:
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5792242559614815219}
+  - component: {fileID: 3508106427246555814}
+  - component: {fileID: 2705342339781778625}
+  - component: {fileID: 2807527594786809134}
+  m_Layer: 0
+  m_Name: Spell4
+  m_TagString: Spell
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5792242559614815219
+Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8229266804680978042}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7fe6a422e5451b64a83a16c7ddc77419, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  isleft: 0
-  controller: {fileID: 6982333126729363389, guid: 061b2f68d9bf1264cad888d1b2ab683d, type: 3}
-  speed: 1
---- !u!50 &4148403958665528712
-Rigidbody2D:
-  serializedVersion: 4
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8229266804680978042}
-  m_BodyType: 0
-  m_Simulated: 1
-  m_UseFullKinematicContacts: 0
-  m_UseAutoMass: 0
-  m_Mass: 1
-  m_LinearDrag: 0
-  m_AngularDrag: 0.05
-  m_GravityScale: 0
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 16
-  m_Interpolate: 0
-  m_SleepingMode: 1
-  m_CollisionDetection: 0
-  m_Constraints: 0
---- !u!58 &5535961563761345876
+  m_GameObject: {fileID: 2633112185980772662}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -3.6183193, y: -7.519057, z: -0.14726025}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 8326388032510741693}
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!58 &3508106427246555814
 CircleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8229266804680978042}
+  m_GameObject: {fileID: 2633112185980772662}
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
@@ -162,7 +134,7 @@ CircleCollider2D:
     m_Bits: 0
   m_ExcludeLayers:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 16
   m_LayerOverridePriority: 0
   m_ForceSendLayers:
     serializedVersion: 2
@@ -179,6 +151,35 @@ CircleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: -0.7, y: 0}
   serializedVersion: 2
-  m_Radius: 0.5
+  m_Radius: 1
+--- !u!114 &2705342339781778625
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2633112185980772662}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 40bcc971fc7a8304592307f3152bb6d0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Damage: 7
+  ManaCost: 10
+  Manarefund: 15
+  Spellname: 
+  spellritual: 6b0000006c0000006c000000
+--- !u!114 &2807527594786809134
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2633112185980772662}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 63f7243a314e76e4a9825184eb1186f0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
