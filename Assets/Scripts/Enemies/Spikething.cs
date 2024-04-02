@@ -10,12 +10,5 @@ public class Spikething : MonoBehaviour
         em = GetComponent<Enemies>();
     }
 
-    private void OnCollisionEnter2D(Collision2D collision)
-    {
-        if(collision.gameObject.CompareTag("Player"))
-        {
-            PlayerHealthandMana.sethealth(em.damage);
-            
-        }
-    }
+   // as i move all the enemies hp and attack damage funtions to the enemies script this is no longer needed. 
 }

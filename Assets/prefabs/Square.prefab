@@ -77,7 +77,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
+  m_Sprite: {fileID: 21300000, guid: b182f4a5e6856b842b823bb1a02162cf, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -102,7 +102,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Damage: 2
   ManaCost: 1
-  Manarefund: 2
+  Manarefund: -2
   Spellname: Spell Arrow
   spellritual: 6a0000006a0000006a000000
 --- !u!114 &7397477951281477145
@@ -118,8 +118,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isleft: 0
-  controller: {fileID: 6982333126729363389, guid: 061b2f68d9bf1264cad888d1b2ab683d, type: 3}
-  speed: 1
+  controller: {fileID: 8843683432065820451, guid: 95157c997a9c5a440bb935321823da81, type: 3}
+  speed: 5
 --- !u!50 &4148403958665528712
 Rigidbody2D:
   serializedVersion: 4
@@ -162,7 +162,7 @@ CircleCollider2D:
     m_Bits: 0
   m_ExcludeLayers:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 16
   m_LayerOverridePriority: 0
   m_ForceSendLayers:
     serializedVersion: 2
@@ -179,6 +179,6 @@ CircleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: -0.031754628, y: 0.26282078}
   serializedVersion: 2
-  m_Radius: 0.5
+  m_Radius: 0.5256748

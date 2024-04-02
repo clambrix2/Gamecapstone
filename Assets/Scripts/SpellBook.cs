@@ -20,6 +20,7 @@ public class SpellBook : MonoBehaviour
     {
         int count;
         count = 0;
+        Debug.Log(Spells.Length);
         for (int i = 0; i < Spells.Length; i++)
         {
 
@@ -52,6 +53,8 @@ public class SpellBook : MonoBehaviour
     }
     public bool manacheck(int s)
     {
+        Debug.Log(Spells[s]);
+        Debug.Log(PlayerHealthandMana.Mana);
         spell = Spells[s].GetComponent<Spell>();
         float m = spell.ManaCost;
         

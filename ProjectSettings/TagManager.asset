@@ -8,6 +8,8 @@ TagManager:
   - Loadzone
   - Enemy
   - Wall
+  - Table
+  - Ground
   layers:
   - Default
   - TransparentFX

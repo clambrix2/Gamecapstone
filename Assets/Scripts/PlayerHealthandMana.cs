@@ -1,16 +1,26 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerHealthandMana : MonoBehaviour
 {
    static float health;
-   static float Mana;
+  public static float Mana;
+    public GameObject Healthui;
+    public GameObject Manaui;
+    public static TMP_Text Healthorb;
+    public static TMP_Text Manaorb;
     void Start()
     {
-        Mana = 30;
-        health = 10;
-        
+        Mana = 50;
+        health = 50;
+        Healthorb = Healthui.GetComponent<TMP_Text>();
+        Manaorb = Manaui.GetComponent<TMP_Text>();
+        Healthorb.text = "Health " + health;
+        Manaorb.text = "Mana " + Mana;
+
     }
 
     // Update is called once per frame
@@ -21,7 +31,7 @@ public class PlayerHealthandMana : MonoBehaviour
     public static void sethealth(float d)
     {
         health = health - d;
-        Debug.Log(health);
+        Healthorb.text = "Health " + health;
         if(health <= 0)
         {
             ondeath();
@@ -32,12 +42,15 @@ public class PlayerHealthandMana : MonoBehaviour
     {
         if(health <=0)
         {
-            Debug.Log("does nothing for now");
+
+            Playercontroller.destoryplayer();
+            SceneManager.LoadScene("Game");
         }
     }
     public static void setMana(float m)
     {
         Mana = Mana - m;
+        Manaorb.text = "Mana " + Mana;
         Debug.Log(Mana);
     }
     public static float getmana()

@@ -1,53 +1,111 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEditor;
 using UnityEngine;
+using static UnityEngine.GraphicsBuffer;
+using UnityEngine.SceneManagement;
 
 public class Playercontroller : MonoBehaviour
 {
     private int rituallength;
     public KeyCode[] input;
     public GameObject gm;
+    public GameObject dagger;
+    private static GameObject player;
     private SpellBook sb;
     public Transform shootpoint;
     private Rigidbody2D rb;
     private SpellController sc;
+    private CapsuleCollider2D col;
     public float speed;
     private float moveinput;
     public float jumpforce;
     private bool isgrounded;
     int i;
     private bool isleft;
+    public float iframe;
+    public bool ischoas;
+    public float jump;
     void Start()
     {
         rituallength = 3;
         sb = gm.GetComponent<SpellBook>();
         rb= GetComponent<Rigidbody2D>();
         sc = gm.gameObject.GetComponent<SpellController>();
+        col = GetComponent<CapsuleCollider2D>();
         i = 0;
         isgrounded = true;
+        iframe = 0;
+        //DontDestroyOnLoad(this.gameObject);
+        player = this.gameObject;
+        jump = 0;
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (input[2] == KeyCode.None)
+        if (!ischoas)
         {
-            Spellcast();
+            if (input[2] == KeyCode.None)
+            {
+                Spellcast();
+            }
+            else if (Input.GetKeyDown(KeyCode.Return) || Input.GetKeyDown(KeyCode.JoystickButton11))
+            {
+                firespell();
+            }
+            moveinput = Input.GetAxisRaw("Horizontal");
+            rotate();
+            move();
+            if (Input.GetKeyDown(KeyCode.Space) && jump  < 2)
+            {
+                Jump();
+            }
+            choasshift();
         }
-        else if(Input.GetKeyDown(KeyCode.Return)) 
+        else
         {
-            firespell();
+            if(iframe <= 0)
+            {
+                ischoas = false;
+            }
         }
-        moveinput = Input.GetAxisRaw("Horizontal");
-        rotate();
-        move();
-        if(Input.GetKeyDown(KeyCode.Space) && isgrounded)
-        {
-            Jump();
-        }
+        manastealdagger();
+        iframes();
         
-        
+    }
+   
+    public void usetable()
+    {
+        if(Input.GetKeyDown(KeyCode.F) || Input.GetKeyDown(KeyCode.JoystickButton4))
+        {
+            
+            SpellTable.inuse();
+
+        }
+    }
+    public void useitem()
+    {
+
+    }
+    public void iframes()
+    {
+        if(iframe <= 0)
+        {
+            col.gameObject.GetComponent<CapsuleCollider2D>().enabled = true;
+            rb.excludeLayers = 0;
+            rb.includeLayers = 64;
+        }
+        else if(iframe != 0)
+        {
+            
+            col.gameObject.GetComponent<CapsuleCollider2D>().enabled = false;
+            rb.excludeLayers = 64;
+            rb.includeLayers = 0;
+            iframe = iframe - Time.deltaTime;
+        }
+       
     }
     void rotate()
     {
@@ -116,17 +174,74 @@ public class Playercontroller : MonoBehaviour
     void Jump()
     {
         isgrounded = false;
+        jump++;
        
         rb.velocity = new Vector2(rb.velocity.x, jumpforce);
 
     }
+    public void choasshift()
+    {
+
+        if(Input.GetKeyDown(KeyCode.I) && PlayerHealthandMana.Mana > 0||  Input.GetKeyDown(KeyCode.JoystickButton10) && PlayerHealthandMana.Mana > 0)
+        {
+            
+            PlayerHealthandMana.setMana(10);
+            iframe = 1;
+            ischoas = true;
+        }
+    }
+    public void manastealdagger()
+    {
+        if(Input.GetKeyDown(KeyCode.H))
+        {
+            Instantiate(dagger, shootpoint.position, shootpoint.rotation = Quaternion.Euler(0,0,130));
+        }
+    }
+    public static void destoryplayer()
+    {
+        Spawner.Playerispawn = false;
+        SceneManager.MoveGameObjectToScene(player, SceneManager.GetActiveScene());
+    }
+    
     public bool getleftorright()
     {
         return isleft;
     }
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        isgrounded = true;
+        if(collision.gameObject.CompareTag("Ground"))
+        {
+            jump = 0;
+            
+        }
+        if(collision.gameObject.CompareTag("Enemy"))
+        {
+            iframe = 1;
+        }
+    }
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if(collision.gameObject.CompareTag("Table"))
+        {
+            usetable();
+        }
+      //  else if(collision.gameObject.CompareTag("Item"))
+       // {
+            //useitem();
+       // }
+        
+    }
+    private void OnTriggerStay2D(Collider2D collision)
+    {
+        if (collision.gameObject.CompareTag("Table"))
+        {
+            usetable();
+        }
+        //else if (collision.gameObject.CompareTag("Item"))
+       // {
+            //useitem();
+       // }
+
     }
 
 }

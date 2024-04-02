@@ -14,7 +14,7 @@ public class SpellArrow : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
         sc = controller.GetComponent<SpellController>();
-        timer = (float).2;
+        timer = (float).01;
       
     }
 
@@ -42,6 +42,13 @@ public class SpellArrow : MonoBehaviour
         }
         timer -= Time.deltaTime;
     }
- 
-  
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.CompareTag("Enemy") || collision.gameObject.CompareTag("Wall"))
+        {
+            Destroy(this.gameObject);
+        }
+    }
+
+
 }

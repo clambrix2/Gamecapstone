@@ -151,7 +151,7 @@ CircleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.7, y: 0}
+  m_Offset: {x: 0.11790848, y: -0.09744048}
   serializedVersion: 2
   m_Radius: 1
 --- !u!114 &2705342339781778625
@@ -168,8 +168,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Damage: 7
   ManaCost: 10
-  Manarefund: 15
-  Spellname: 
+  Manarefund: -15
+  Spellname: Nuke
   spellritual: 6b0000006c0000006c000000
 --- !u!114 &2807527594786809134
 MonoBehaviour:

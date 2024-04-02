@@ -7,15 +7,51 @@ public class Homingspell : MonoBehaviour
 {
     private Vector3 pos;
     private Rigidbody2D rb;
+    public float lifeconter;
+    public bool ishoming;
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        
     }
 
     // Update is called once per frame
     void Update()
     {
-        move();
+        if (ishoming)
+        {
+
+
+            if (pos != new Vector3(0, 0, 0))
+            {
+                move();
+            }
+            else
+            {
+                lifeconter = lifeconter - Time.deltaTime;
+            }
+
+            if (lifeconter <= 0)
+            {
+                Destroy(this.gameObject);
+                
+            }
+        }
+        else
+        {
+            if(!ishoming) 
+            {
+                lifeconter = lifeconter - Time.deltaTime;
+            }
+
+            if (lifeconter <= 0)
+            {
+                Destroy(this.gameObject);
+                
+            }
+        }
+
+        
     }
     private void move()
     {

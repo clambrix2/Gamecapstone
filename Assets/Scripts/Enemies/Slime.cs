@@ -7,9 +7,7 @@ public class Slime : MonoBehaviour
 {
     private Enemies em;
     private Rigidbody2D rb;
-    private Spell sp;
     private Transform playerlocation;
-    private float gethitdamage;
     private bool playerinranged;
     void Start()
     {
@@ -23,41 +21,28 @@ public class Slime : MonoBehaviour
     {
         if(playerinranged)
         {
+            flip();
             Move();
         }
         
-    }
-    private void onhit()
-    {
-        em.Health -= gethitdamage;
-    }
-    private void ondeath()
-    {
-        if(em.Health <= 0)
-        {
-            Destroy(this.gameObject);
-        }
     }
     private void Move()
     {
         
         rb.MovePosition(Vector2.MoveTowards(transform.position, new Vector2(playerlocation.position.x, playerlocation.position.y), em.speed));
     }
-    private void OnCollisionEnter2D(Collision2D collision)
+    private void flip()
     {
-        if(collision.gameObject.CompareTag("Player"))
+        if (playerlocation.transform.position.x <= transform.position.x - .1f)
         {
-            PlayerHealthandMana.sethealth(em.damage);
+            transform.localRotation = Quaternion.Euler(0, 0, 0);
         }
-        if (collision.gameObject.CompareTag("Spell"))
+        else if (playerlocation.transform.position.x >= transform.position.x + .1f)
         {
-            sp = collision.gameObject.GetComponent<Spell>();
-            gethitdamage = sp.Damage;
-            onhit();
-            ondeath();
-
+            transform.localRotation = Quaternion.Euler(0, 180, 0);
         }
     }
+ 
     private void OnTriggerEnter2D(Collider2D collision)
     {
         
