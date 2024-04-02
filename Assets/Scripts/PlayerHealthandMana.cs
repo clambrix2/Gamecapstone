@@ -50,6 +50,10 @@ public class PlayerHealthandMana : MonoBehaviour
     public static void setMana(float m)
     {
         Mana = Mana - m;
+        if(Mana > 50)
+        {
+            Mana = 50;
+        }
         Manaorb.text = "Mana " + Mana;
         Debug.Log(Mana);
     }

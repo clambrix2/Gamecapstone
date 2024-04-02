@@ -1011,7 +1011,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Damage: 2
-  ManaCost: 1
+  ManaCost: 7
   Manarefund: 2
   Spellname: Spell Arrow 2
   spellritual: 6b0000006a0000006b000000
