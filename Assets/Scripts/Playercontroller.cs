@@ -194,7 +194,8 @@ public class Playercontroller : MonoBehaviour
     {
         if(Input.GetKeyDown(KeyCode.H))
         {
-            Instantiate(dagger, shootpoint.position, shootpoint.rotation = Quaternion.Euler(0,0,130));
+            Instantiate(dagger, shootpoint.position, shootpoint.rotation);
+            
         }
     }
     public static void destoryplayer()
