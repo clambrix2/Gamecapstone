@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 7062289978945118705}
   - component: {fileID: 3449925528423031202}
   - component: {fileID: 2854280329507508605}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Sword
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -142,7 +142,7 @@ GameObject:
   - component: {fileID: 2727550175344874347}
   - component: {fileID: 3371140118016717649}
   - component: {fileID: 8284757123088301194}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Square
   m_TagString: Wall
   m_Icon: {fileID: 0}
@@ -248,7 +248,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.55, y: 0.20474148}
+  m_Offset: {x: 0.22172388, y: -0.014104545}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -259,7 +259,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.13552856, y: 1.5004826}
+  m_Size: {x: 0.09178811, y: 1.0627905}
   m_EdgeRadius: 0
 --- !u!114 &8284757123088301194
 MonoBehaviour:
@@ -288,9 +288,10 @@ GameObject:
   - component: {fileID: 6869169333479378554}
   - component: {fileID: 972841879229734646}
   - component: {fileID: 1458751149209461458}
-  m_Layer: 0
+  - component: {fileID: 6944890415309172367}
+  m_Layer: 6
   m_Name: Skeletonknight
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -304,8 +305,8 @@ Transform:
   m_GameObject: {fileID: 5626729121488557235}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -309.79, y: -27.81, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: -309.5576, y: -27.5135, z: 0}
+  m_LocalScale: {x: 1.4649, y: 1.5931, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 7062289978945118705}
@@ -354,7 +355,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: -9095717837082945937, guid: 207ee8102dd4143d288186ef0be518ee, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 3c81d13138dcd634cb51c02b772204f5, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -397,8 +398,8 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_Size: {x: 1, y: 2}
+  m_Offset: {x: -0.038290195, y: -0.012577774}
+  m_Size: {x: 0.4309834, y: 1.1095223}
   m_Direction: 0
 --- !u!114 &6220161032125111824
 MonoBehaviour:
@@ -456,8 +457,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Health: 23
-  damage: 23
+  damage: 10
   speed: 5
+  bossone: 0
+  bosstwo: 0
+  bossthree: 0
+  scroll1: {fileID: 0}
+  scroll2: {fileID: 0}
+  scroll3: {fileID: 0}
 --- !u!58 &1458751149209461458
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -493,6 +500,27 @@ CircleCollider2D:
   m_Offset: {x: -0.02142334, y: 0}
   serializedVersion: 2
   m_Radius: 2.7704163
+--- !u!95 &6944890415309172367
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5626729121488557235}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 2623853109a13d94cbcaf05dc2357b7d, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &7107330871927737282
 GameObject:
   m_ObjectHideFlags: 0
@@ -504,7 +532,7 @@ GameObject:
   - component: {fileID: 6211945589449000411}
   - component: {fileID: 2271260741367406133}
   - component: {fileID: 3254754566084716843}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Sword (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}

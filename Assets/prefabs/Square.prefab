@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 7397477951281477145}
   - component: {fileID: 4148403958665528712}
   - component: {fileID: 5535961563761345876}
+  - component: {fileID: 2712113766598318826}
   m_Layer: 0
   m_Name: Square
   m_TagString: Spell
@@ -118,7 +119,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isleft: 0
-  controller: {fileID: 8843683432065820451, guid: 95157c997a9c5a440bb935321823da81, type: 3}
+  controller: {fileID: 8843683432065820451, guid: 5231115b9cc8dd54e96ee0a913319176, type: 3}
   speed: 5
 --- !u!50 &4148403958665528712
 Rigidbody2D:
@@ -182,3 +183,24 @@ CircleCollider2D:
   m_Offset: {x: -0.031754628, y: 0.26282078}
   serializedVersion: 2
   m_Radius: 0.5256748
+--- !u!95 &2712113766598318826
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8229266804680978042}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: fdfe6092233c2104fbf3ce2a36f56270, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0

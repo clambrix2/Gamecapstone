@@ -13,12 +13,14 @@ public class Mage : MonoBehaviour
     private Spell sp;
     private Enemies em;
     public Transform shootpoint;
+    private Animator animator;
     void Start()
     {
         inranged = false;
         count = .02f;
         spellcooldown = 2;
         em = GetComponent<Enemies>();
+        animator = GetComponent<Animator>();
     }
 
     // Update is called once per frame
@@ -26,6 +28,7 @@ public class Mage : MonoBehaviour
     {
         if(inranged && spellcooldown <= 0)
         {
+            animator.SetBool("attack", true);
             spellone();
             if(count <= 0)
             {

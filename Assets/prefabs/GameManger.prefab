@@ -12,8 +12,9 @@ GameObject:
   - component: {fileID: 1473735660980522004}
   - component: {fileID: 637243873175015792}
   - component: {fileID: 3245831686036982369}
+  - component: {fileID: 2685196612490044607}
   m_Layer: 0
-  m_Name: GameManger 1
+  m_Name: GameManger
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -51,8 +52,7 @@ MonoBehaviour:
   - {fileID: 5430090860491972268, guid: 4047edef06594df4faee83a97b0d2d30, type: 3}
   - {fileID: 7624977956372867433, guid: b97015e94533fad4cbfb0d74a9ace575, type: 3}
   - {fileID: 2633112185980772662, guid: 8d2009ace99d84940b6a2458f1eab206, type: 3}
-  - {fileID: 2633112185980772662, guid: 8d2009ace99d84940b6a2458f1eab206, type: 3}
-  - {fileID: 2633112185980772662, guid: 8d2009ace99d84940b6a2458f1eab206, type: 3}
+  - {fileID: 7795457572680894530, guid: 9cf2f4f3f8582df41a4c95fcdfa06f99, type: 3}
 --- !u!114 &637243873175015792
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -77,3 +77,41 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 494929d81d2b4474f92116a2c3823d85, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Healthui: {fileID: 0}
+  Manaui: {fileID: 0}
+  sp: {fileID: 0}
+  Health1: {fileID: 2800000, guid: ab768e15c124521488afe115c4b4c01e, type: 3}
+  Health2: {fileID: 2800000, guid: 6242a6726e35cdd43849ffabb16c527b, type: 3}
+  Health3: {fileID: 2800000, guid: f9b38050dc01eeb43b969dee97893a0d, type: 3}
+  Health4: {fileID: 2800000, guid: e80bbdc37b56ada4aa6d4d9138ad3b23, type: 3}
+  Health5: {fileID: 2800000, guid: 9a5f8d888aa3d444cb7e07474382061a, type: 3}
+  Mana1: {fileID: 2800000, guid: 37193328f0c7336479572decbcb784b2, type: 3}
+  Mana2: {fileID: 2800000, guid: 68ecd2b5af3b0404aa652c670b2714b9, type: 3}
+  Mana3: {fileID: 2800000, guid: ec8a1396d11f16e429a4be945dd104a5, type: 3}
+  Mana4: {fileID: 2800000, guid: 1c41f54b1ca567745b0cd0eebe935483, type: 3}
+  Mana5: {fileID: 2800000, guid: 02413766342957d4fad2b709211ab6d3, type: 3}
+  emptyorb: {fileID: 2800000, guid: 1420f8d0d3c1ad54da8aeeae5ae93161, type: 3}
+--- !u!114 &2685196612490044607
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8843683432065820451}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e13d0fb601f922141a2ebcb787c76acd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Menu: {fileID: 0}
+  Spellinfo: {fileID: 0}
+  Healthandmana: {fileID: 0}
+  runeone: {fileID: 8947215973060307870, guid: 9784b6feeaa36c24dac7781aae7d76bd, type: 3}
+  player: {fileID: 1909091031765685724, guid: 966a97efc126f5248b45b00377948c43, type: 3}
+  runetwo: {fileID: 619812233655349394, guid: be431c246e99a9348b0975cd91c1fdc0, type: 3}
+  runethree: {fileID: 3661918036377096334, guid: 3bb5b705c05bd734fac814e1d1377fa4, type: 3}
+  temp: {fileID: 0}
+  runej: {fileID: 2800000, guid: 3d73f5b5b3c2bbf4ebef7e596c9ae4d1, type: 3}
+  runek: {fileID: 2800000, guid: dff32776f11f11c43a199518282c7510, type: 3}
+  runel: {fileID: 2800000, guid: d70c3ec1ca2caa649b1a3f790ee1ecca, type: 3}
+  runeblank: {fileID: 2800000, guid: 8098556dbad571c43a59c49890f11617, type: 3}

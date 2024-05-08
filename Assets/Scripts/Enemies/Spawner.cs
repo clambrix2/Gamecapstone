@@ -15,7 +15,7 @@ public class Spawner : MonoBehaviour
     public static bool spawnerdestory;
     void Start()
     {
-        Playerispawn = false;
+        
         if(spawnerdestory && isPlayer)
         {
             Destroy(this.gameObject);
@@ -36,7 +36,7 @@ public class Spawner : MonoBehaviour
             if(dontdeload)
                {
             dontdeload = false;
-            //DontDestroyOnLoad(this.gameObject);
+            DontDestroyOnLoad(this.gameObject);
                }
         
         

@@ -16,10 +16,12 @@ public class Skeletonknight : MonoBehaviour
     private float count;
     private float shieldcount;
     private bool inranged;
+    private Animator animator;
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         em = GetComponent<Enemies>();
+        animator = GetComponent<Animator>();
         attackdur = 1;
         count = 1;
     }
@@ -34,11 +36,13 @@ public class Skeletonknight : MonoBehaviour
            shieldup();
             if (player.transform.position.x > transform.position.x - 5f && player.transform.position.x < transform.position.x + 5f)
             {
-
+                animator.SetBool("attackone", true);
                 attack();
             }
             else
             {
+                animator.SetBool("attackone", false);
+                animator.SetBool("attacktwo", false);
                 sword.SetActive(false);
                 sword2.SetActive(false);
             }
@@ -114,6 +118,7 @@ public class Skeletonknight : MonoBehaviour
         {
             PlayerHealthandMana.sethealth(em.damage);
             sword.SetActive(false);
+            animator.SetBool("attacktwo", true);
             sword2.SetActive(true);
         }
         if(collision.gameObject.CompareTag("Spell") && this.gameObject.CompareTag("Wall"))

@@ -11,11 +11,13 @@ public class Knight : MonoBehaviour
     private Enemies em;
     private float attackdur;
     private bool inranged;
+    private Animator animator;
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         em = GetComponent<Enemies>();
         attackdur = 1;
+        animator = GetComponent<Animator>();
     }
 
     // Update is called once per frame
@@ -23,6 +25,7 @@ public class Knight : MonoBehaviour
     {
         if (inranged)
         {
+            animator.SetBool("inranged", false);
             move();
             if (player.transform.position.x > transform.position.x - 5f && player.transform.position.x < transform.position.x + 5f)
             {
@@ -31,19 +34,34 @@ public class Knight : MonoBehaviour
             }
             else
             {
+                animator.SetBool("attack", false);
                 sword.SetActive(false);
             }
+            turnaround();
         }
     }
     private void move()
     {
         rb.MovePosition(Vector2.MoveTowards(transform.position, new Vector2(player.transform.position.x, player.transform.position.y), em.speed * Time.deltaTime));
     }
+    private void turnaround()
+    {
+
+        if (player.transform.position.x <= transform.position.x - .1f)
+        {
+            transform.localRotation = Quaternion.Euler(0, 180, 0);
+        }
+        else if (player.transform.position.x >= transform.position.x + .1f)
+        {
+            transform.localRotation = Quaternion.Euler(0, 0, 0);
+        }
+    }
     private void attack()
     {
         
         if(attackdur <= 0 && attackdur >= -.5)
         {
+            animator.SetBool("attack", true);
             sword.SetActive(true);
             attackdur -= Time.deltaTime;
         }

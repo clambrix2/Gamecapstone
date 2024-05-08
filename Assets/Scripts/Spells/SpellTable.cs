@@ -8,7 +8,7 @@ public class SpellTable : MonoBehaviour
 {
     
     
-    public Transform spawner;
+    public static Transform spawner;
     public float x;
     public float y;
   

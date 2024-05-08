@@ -6,6 +6,7 @@ public class SpellBook : MonoBehaviour
 {
     public GameObject[] Spells;
     private Spell spell;
+    
     void Start()
     {
         
@@ -40,6 +41,17 @@ public class SpellBook : MonoBehaviour
             {
 
                 Debug.Log("passed third check");
+                if(spell.Spellname == "Haste")
+                {
+                    if(scrolls.collect3)
+                    {
+                        return i;
+                    }
+                    else
+                    {
+                        return -1;
+                    }
+                }
                 return i;
             }
             else

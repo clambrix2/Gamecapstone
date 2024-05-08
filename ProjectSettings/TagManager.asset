@@ -10,6 +10,10 @@ TagManager:
   - Wall
   - Table
   - Ground
+  - Reflect
+  - Enemyspell
+  - Item
+  - Chaos
   layers:
   - Default
   - TransparentFX
@@ -19,8 +23,8 @@ TagManager:
   - UI
   - Enemy
   - Dagger
-  - 
-  - 
+  - ground
+  - Enemyspell
   - 
   - 
   - 

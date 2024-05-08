@@ -9,11 +9,15 @@ public class Slime : MonoBehaviour
     private Rigidbody2D rb;
     private Transform playerlocation;
     private bool playerinranged;
+    private Transform old;
+    private Animator animator;
     void Start()
     {
         em = GetComponent<Enemies>();
         rb = GetComponent<Rigidbody2D>();
         playerinranged = false;
+        old = gameObject.transform;
+        animator = GetComponent<Animator>();
     }
 
     // Update is called once per frame
@@ -21,13 +25,17 @@ public class Slime : MonoBehaviour
     {
         if(playerinranged)
         {
+            animator.SetBool("inranged", true);
             flip();
             Move();
+           
+            
         }
         
     }
     private void Move()
     {
+        
         
         rb.MovePosition(Vector2.MoveTowards(transform.position, new Vector2(playerlocation.position.x, playerlocation.position.y), em.speed));
     }
@@ -50,6 +58,8 @@ public class Slime : MonoBehaviour
         {
             playerlocation = collision.gameObject.GetComponent<Transform>();
             playerinranged=true;
+            
+
         }
     }
 

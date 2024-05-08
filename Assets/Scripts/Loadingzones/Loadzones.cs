@@ -34,13 +34,17 @@ public class Loadzones : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision)
     {
         
-        if(collision.gameObject.CompareTag("Loadzone"))
+        if(collision.gameObject.CompareTag("Loadzone") || collision.gameObject.CompareTag("Player"))
         {
                 
                 movecam();
             if(playeryeleport)
             {
-                teleport();
+                if (collision.gameObject.CompareTag("Player"))
+                {
+                    Player = collision.gameObject;
+                    teleport();
+                }
             }
                 
                 

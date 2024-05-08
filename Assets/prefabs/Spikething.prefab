@@ -30,7 +30,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -12.37, y: -5.5922, z: 0}
-  m_LocalScale: {x: 4.278253, y: 4.257139, z: 1}
+  m_LocalScale: {x: 8, y: 8, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -102,6 +102,12 @@ MonoBehaviour:
   Health: 2
   damage: 2
   speed: 0
+  bossone: 0
+  bosstwo: 0
+  bossthree: 0
+  scroll1: {fileID: 0}
+  scroll2: {fileID: 0}
+  scroll3: {fileID: 0}
 --- !u!114 &9198534469220974136
 MonoBehaviour:
   m_ObjectHideFlags: 0

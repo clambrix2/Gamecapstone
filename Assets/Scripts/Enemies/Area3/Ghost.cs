@@ -23,11 +23,23 @@ public class Ghost : MonoBehaviour
         if (inranged)
         {
             move();
+            turnaround();
         }
     }
     private void move()
     {
         rb.MovePosition(Vector2.MoveTowards(transform.position, new Vector2(player.transform.position.x, player.transform.position.y), em.speed));
+    }
+    private void turnaround()
+    {
+        if (player.transform.position.x <= transform.position.x - .1f)
+            {
+                transform.localRotation = Quaternion.Euler(0, 180, 0);
+            }
+            else if (player.transform.position.x >= transform.position.x + .1f)
+            {
+                transform.localRotation = Quaternion.Euler(0, 0, 0);
+            }
     }
     private void onhit(float d)
     {
@@ -60,6 +72,15 @@ public class Ghost : MonoBehaviour
         {
             sp = collision.gameObject.GetComponent<Spell>();
             onhit(sp.Damage);
+        }
+    }
+    private void OnCollisionStay2D(Collision2D collision)
+    {
+
+        if (collision.gameObject.CompareTag("Player"))
+        {
+            PlayerHealthandMana.sethealth(em.damage);
+
         }
     }
 }

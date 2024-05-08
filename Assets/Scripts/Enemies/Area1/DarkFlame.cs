@@ -30,7 +30,10 @@ public class DarkFlame : MonoBehaviour
                 explode();
             }
             life = life - Time.deltaTime;
-            target();
+         
+                target();
+            
+            
         }
     }
     private void target()

@@ -12,6 +12,7 @@ public class Firstboss : MonoBehaviour
     public GameObject sword;
     public Animation swordanim;
     public Animator animator;
+    private Animator animator2;
     private Rigidbody2D rb;
     public static bool killed;
     public int hits;
@@ -19,6 +20,7 @@ public class Firstboss : MonoBehaviour
     public float timer;
     public float majorattackcooldown;
     public bool gapcloserdone;
+    public GameObject scroll;
     void Start()
     {
         bossstart = false;
@@ -27,6 +29,8 @@ public class Firstboss : MonoBehaviour
         hits = 0;
         majorattackcooldown = 15;
         gapcloserdone = true;
+        animator2 = GetComponent<Animator>();
+
         
     }
 
@@ -35,7 +39,7 @@ public class Firstboss : MonoBehaviour
     {
         if(bossstart)
         {
-           
+            animator2.SetBool("inranged", true);
             turnaround();
             if(majorattackcooldown <= 0)
             {
@@ -49,6 +53,8 @@ public class Firstboss : MonoBehaviour
             else if (player.transform.position.x >= transform.position.x - 5f && player.transform.position.x <= transform.position.x + 5f && gapcloserdone)
             {
                 animator.SetInteger("Hits", hits);
+                animator.Play("attackone");
+               
                 attack();
 
             }
@@ -62,12 +68,12 @@ public class Firstboss : MonoBehaviour
                 if (player.transform.position.x >= transform.position.x + 10f)
                 {
                     rb.velocity = new Vector2(2 * 10, rb.velocity.y);
-                    animator.Play("Stinger");
+                    
                 }
                 else if(player.transform.position.x <= transform.position.x - 10f)
                 {
                     rb.velocity = new Vector2(2 * - 10, rb.velocity.y);
-                    animator.Play("Stinger");
+                    
                 }
             }
             else
@@ -75,6 +81,8 @@ public class Firstboss : MonoBehaviour
                 
                timer = 0;
                sword.SetActive(false);
+                animator2.SetBool("attackone", false);
+                animator2.SetBool("spintowinglory", false);
                 
                 
             }
@@ -83,7 +91,7 @@ public class Firstboss : MonoBehaviour
     }
     private void move()
     {
-        Debug.Log("Here");
+        
         if(player.transform.position.x >= transform.position.x + 1f)
         {
             rb.velocity = new Vector2(2 * 1, rb.velocity.y);
@@ -107,6 +115,8 @@ public class Firstboss : MonoBehaviour
     }
     private void Majorattack()
     {
+        animator2.SetBool("attackone", false);
+        animator2.SetBool("spintowinglory", false);
         Instantiate(darkorbs, shootpoint.transform.position, shootpoint.rotation);
         majorattackcooldown = 15;
     }
@@ -116,14 +126,15 @@ public class Firstboss : MonoBehaviour
         sword.SetActive(true);
         if (timer <= 0.5)
         {
-            animator.Play("Attackone");
-
+            
+            animator2.SetBool("attackone", true);
+            animator2.SetBool("spintowinglory", false);
             timer = timer + Time.deltaTime;
 
         }
         if (timer <= 1.5)
         {
-            animator.Play("Attackthree");
+            animator.Play("Attackone");
             
             timer = timer + Time.deltaTime;
             hits = 1;
@@ -138,11 +149,12 @@ public class Firstboss : MonoBehaviour
         else if (timer <= 3.5)
         {
             animator.Play("Spintowin");
-           
+            animator2.SetBool("spintowinglory", true);
             timer = timer + Time.deltaTime;
             hits = 3;
             if(timer >= (float)3.5)
             {
+                animator2.SetBool("spintowinglory", false);
                 timer = 0;
                 hits = 0;
             }
@@ -161,7 +173,7 @@ public class Firstboss : MonoBehaviour
         if (collision.gameObject.CompareTag("Player"))
         {
 
-            PlayerHealthandMana.sethealth(1);
+            PlayerHealthandMana.sethealth(gameObject.GetComponent<Enemies>().damage);
             hits = hits + 1;
         }
     }

@@ -10,7 +10,8 @@ GameObject:
   m_Component:
   - component: {fileID: 5575200623639776209}
   - component: {fileID: 7402575381187673734}
-  m_Layer: 0
+  - component: {fileID: 1098265067386852648}
+  m_Layer: 6
   m_Name: GameObject
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -77,6 +78,18 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!114 &1098265067386852648
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4869197314730831887}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7f5774cefac333a409af8c921dd26f18, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &8037944605574995167
 GameObject:
   m_ObjectHideFlags: 0
@@ -92,9 +105,10 @@ GameObject:
   - component: {fileID: 7592879751917015436}
   - component: {fileID: 1602786754964373757}
   - component: {fileID: 6884300661584515574}
-  m_Layer: 0
+  - component: {fileID: 4471140887164715820}
+  m_Layer: 6
   m_Name: PheonixKnight
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -109,7 +123,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -265.86, y: -119.44, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 2, y: 2, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 5575200623639776209}
@@ -156,7 +170,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 534e156315c0fb64e922d1f38d35225b, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -199,8 +213,8 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_Size: {x: 1, y: 1}
+  m_Offset: {x: -0.02067566, y: 0}
+  m_Size: {x: 0.40731812, y: 1}
   m_Direction: 0
 --- !u!50 &7630658390521903863
 Rigidbody2D:
@@ -293,3 +307,30 @@ MonoBehaviour:
   Health: 25
   damage: 3
   speed: 3
+  bossone: 0
+  bosstwo: 0
+  bossthree: 0
+  scroll1: {fileID: 0}
+  scroll2: {fileID: 0}
+  scroll3: {fileID: 0}
+--- !u!95 &4471140887164715820
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8037944605574995167}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 1fe3bc4eddb7e0340a8ae1d5882a67b5, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0

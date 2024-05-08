@@ -15,9 +15,10 @@ GameObject:
   - component: {fileID: 6727240818805176139}
   - component: {fileID: 394668136888642705}
   - component: {fileID: 6226462370499505278}
+  - component: {fileID: 3725218975610828224}
   m_Layer: 0
   m_Name: Darkflameattack
-  m_TagString: Untagged
+  m_TagString: Enemyspell
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -218,3 +219,17 @@ MonoBehaviour:
   Health: 0
   damage: 1
   speed: 0
+--- !u!114 &3725218975610828224
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1221703156922176023}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 98d4ce7b5171a1f46b1a0b15ae346626, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  relfect: 0
+  speedtemp: 1
